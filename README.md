@@ -1,5 +1,3 @@
-&nbsp;
-
 # Example of connecting ardupilot with gazebo
 
 ### Instalation
