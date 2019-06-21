@@ -64,14 +64,8 @@
       </sensor>
     </gazebo>
     
-    <!-- attach multirotor_base_plugin to the base_link -->
+    <!-- attach ardupilot_plugin -->
     <gazebo>
-      <plugin filename="librotors_gazebo_multirotor_base_plugin.so" name="rosbag">
-        <robotNamespace>$(arg name)</robotNamespace>
-        <linkName>base_link</linkName>
-        <rotorVelocitySlowdownSim>${rotor_velocity_slowdown_sim}</rotorVelocitySlowdownSim>
-      </plugin>
-
       <plugin name="arducopter_plugin" filename="libArduPilotPlugin.so">
         <fdm_addr>127.0.0.1</fdm_addr>
         <fdm_port_in>9002</fdm_port_in>
@@ -148,6 +142,12 @@
           <controlVelocitySlowdownSim>1</controlVelocitySlowdownSim>
         </control>
     </plugin>
+    
+    <plugin filename="librotors_gazebo_multirotor_base_plugin.so" name="rosbag">
+        <robotNamespace>$(arg name)</robotNamespace>
+        <linkName>base_link</linkName>
+        <rotorVelocitySlowdownSim>${rotor_velocity_slowdown_sim}</rotorVelocitySlowdownSim>
+      </plugin>
     </gazebo>
   </xacro:macro>
 
